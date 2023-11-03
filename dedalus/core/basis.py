@@ -379,6 +379,11 @@ class IntervalBasis(Basis):
     def global_grids(self, scales=None):
         """Global grids."""
         if scales == None: scales = (1,)
+        return (self.global_grid(scales[0]),)
+
+    def global_grids_fixed(self, scales=None):
+        """Global grids."""
+        if scales == None: scales = (1,)
         return (self.global_grid(scales[self.axis]),)
 
     def global_grid(self, scale=None):
@@ -392,7 +397,7 @@ class IntervalBasis(Basis):
     def local_grids(self, scales=None):
         """Local grids."""
         if scales == None: scales = (1,)
-        return (self.local_grid(scales[self.axis]),)
+        return (self.local_grid(scales[0]),)
 
     def local_grid(self, scale=None):
         """Local grid."""

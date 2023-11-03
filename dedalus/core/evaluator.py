@@ -545,7 +545,7 @@ class H5FileHandlerBase(Handler):
                     subaxis = axis - basis.axis
                     if layout.grid_space[axis]:
                         sn = basis.coordsystem.coords[subaxis].name
-                        data = basis.global_grids(scales)[subaxis].ravel()
+                        data = basis.global_grids_fixed(scales)[subaxis].ravel()
                     else:
                         sn = 'k' + basis.coordsystem.coords[subaxis].name
                         data = layout.global_group_arrays(op.domain, scales)[subaxis]
@@ -857,4 +857,3 @@ class H5VirtualFileHandler(H5FileHandlerBase):
         if overwrite:
             del file['tasks'][task_name]
             file['tasks'].move(new_name, task_name)
-
